@@ -70,11 +70,23 @@ $(function() {
           */
 
     describe('The menu', function() {
+        
         it('should be hidden by default', function() {
             if($().ready) {
                 expect($("body").hasClass("menu-hidden")).toBe(true);
             }
         });
+
+        it('should change visibility on click', function() {
+            if($("body").hasClass("menu-hidden")) {
+                $('.menu-icon-link').trigger('click');
+                expect($("body").hasClass("")).toBe(true);
+            } else if ($("body").hasClass("")) {
+                $('.menu-icon-link').trigger('click');
+                expect($("body").hasClass("menu-hidden")).toBe(true);
+            }
+        });
+
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -87,7 +99,7 @@ $(function() {
          */
 
     describe('Initial Entries', function() {
-
+        
     });
 
     /* TODO: Write a new test suite named "New Feed Selection"
