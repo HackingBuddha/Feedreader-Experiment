@@ -114,20 +114,24 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
     
-     /* TODO: Write a test that ensures when a new feed is loaded
+        /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        
+        var currentFeeds;
+
         beforeEach(function(done) {
             loadFeed(0, done);
+            currentFeeds = $('div.feed').find("h2").text();
         });
 
-        it('should change the content', function(done) {
-            expect()
-            done();
+        it('loading a new feed should change the content', function(done) {
+            loadFeed(1, done);
+            var newFeeds = $('div.feed').find("h2").text();
+            expect(newFeeds != currentFeeds).toBe(true);
         });
 
     });
 
 });
-
